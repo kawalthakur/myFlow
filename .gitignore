@@ -1,0 +1,5 @@
+# IGNORE THESE FILES
+./.vscode/
+./bin/
+./build/
+
