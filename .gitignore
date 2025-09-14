@@ -1,5 +1,6 @@
-# IGNORE THESE FILES
-./.vscode/
-./bin/
-./build/
+# .gitignore
+.vscode/
+bin/
+build/
+polyMesh/
 
