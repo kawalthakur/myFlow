@@ -3,6 +3,7 @@
 #include<fstream>
 #include<string>
 #include<vector>
+#include"../include/utilities.h"
 #include"../include/dictionary.h"
 int main(){
     std::vector<std::vector<std::size_t> > Faces;
@@ -13,6 +14,7 @@ int main(){
     //     }
     //     std::cout << std::endl;
     // }
+    dispArray(Faces);
 
     std::vector<std::vector<double> > Points;
     extractPoints(Points);
@@ -22,10 +24,13 @@ int main(){
     //     }
     //     std::cout << std::endl;
     // }
-    std::vector<std::size_t> Neighbours;
-    extractNeighbours(Neighbours);
+    dispArray(Points);
+
     std::vector<std::size_t> Owners;
     extractOwners(Owners);
+
+    std::vector<std::size_t> Neighbours;
+    extractNeighbours(Neighbours);
 
     return 0;    
 }
