@@ -31,9 +31,11 @@ int main(){
 
     std::vector<std::size_t> Owners;
     extractOwners(Owners);
+    Owners.erase(Owners.begin());
 
     std::vector<std::size_t> Neighbours;
     extractNeighbours(Neighbours);
+    Neighbours.erase(Neighbours.begin());
 
     return 0;    
 }

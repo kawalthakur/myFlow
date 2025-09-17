@@ -78,7 +78,7 @@ void extractOwners(std::vector<std::size_t>& Owners){
         std::smatch match;
         if (std::regex_search(line, match, pattern)) {
             std::string inside = match[0].str(); // "1 4 13 10"
-            std::cout << inside << std::endl;
+            // std::cout << inside << std::endl;
             Owners.push_back(std::stoul(inside));
         }
         else{
@@ -101,7 +101,9 @@ void extractNeighbours(std::vector<std::size_t>& Neighbours){
         std::smatch match;
         if (std::regex_search(line, match, pattern)) {
             std::string inside = match[0].str(); // "1 4 13 10"
-            std::cout << inside << std::endl; 
+            // std::cout << inside << std::endl; 
+            Neighbours.push_back(std::stoul(inside));
+
         }
         else{
             continue;
