@@ -14,6 +14,8 @@ int main(){
     //     }
     //     std::cout << std::endl;
     // }
+
+    std::cout << "Displaying Faces" << std::endl;
     dispArray(Faces);
 
     std::vector<std::vector<double> > Points;
@@ -24,6 +26,7 @@ int main(){
     //     }
     //     std::cout << std::endl;
     // }
+    std::cout << "Displaying Points" << std::endl;
     dispArray(Points);
 
     std::vector<std::size_t> Owners;

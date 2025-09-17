@@ -73,7 +73,7 @@ void extractOwners(std::vector<std::size_t>& Owners){
         return;
     }
     std::string line;
-    const std::regex pattern ("^\\d*[^\\(]");
+    const std::regex pattern ("^\\d+");
     while(std::getline(ownerFile,line)){
         std::smatch match;
         if (std::regex_search(line, match, pattern)) {
@@ -96,7 +96,7 @@ void extractNeighbours(std::vector<std::size_t>& Neighbours){
         return;
     }
     std::string line;
-    const std::regex pattern ("^\\d*[^\\(]");
+    const std::regex pattern ("^\\d+");
     while(std::getline(neighbourFile,line)){
         std::smatch match;
         if (std::regex_search(line, match, pattern)) {
