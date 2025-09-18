@@ -10,3 +10,10 @@ void dispArray(auto& array){
         std::cout << std::endl;
     }
 }
+
+void disp1dArray(auto& array){
+    for(int i = 0; i < array.size() ; i++){
+        std::cout << array[i] << " " ;
+    }
+    std::cout << std::endl;
+}
