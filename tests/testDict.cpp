@@ -15,7 +15,7 @@ int main(){
     //     std::cout << std::endl;
     // }
 
-    std::cout << "Displaying Faces" << std::endl;
+    std::cout << "\nDisplaying Faces" << std::endl;
     dispArray(Faces);
 
     std::vector<std::vector<double> > Points;
@@ -26,17 +26,19 @@ int main(){
     //     }
     //     std::cout << std::endl;
     // }
-    std::cout << "Displaying Points" << std::endl;
+    std::cout << "\nDisplaying Points" << std::endl;
     dispArray(Points);
 
     std::vector<std::size_t> Owners;
     extractOwners(Owners);
     Owners.erase(Owners.begin());
+    std::cout << "\nDisplaying Owners" << std::endl;
     disp1dArray(Owners);
 
     std::vector<std::size_t> Neighbours;
     extractNeighbours(Neighbours);
     Neighbours.erase(Neighbours.begin());
+    std::cout << "\nDisplaying Neighbours" << std::endl;
     disp1dArray(Neighbours);
 
     return 0;    
