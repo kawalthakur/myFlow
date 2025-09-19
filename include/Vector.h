@@ -1,16 +1,13 @@
 #include<iostream>
 
-class Vector{
+class Vector: public Point{
 	// This class is the primary object vector. 
 	// This has 3 components x , y and z
 	// Also includes operations like dot products and cross products
 	private:
 			double x, y, z ; 
 	public: 
-			Vector(double x_=0.0, double y_=0.0, double z_=0.0 );
-			double X();
-			double Y();
-			double Z();
+			Vector(double x_=0.0, double y_=0.0, double z_=0.0 ):Point(x_,y_,z_);
 			double dot(Vector& A,Vector& B);
 			Vector cross(Vector& A, Vector& B);
 			friend std::ostream& operator<<(std::ostream& os, Vector& A);
