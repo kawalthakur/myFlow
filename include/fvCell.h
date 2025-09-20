@@ -1,5 +1,6 @@
-#ifdef FV_CELL_H
 #ifndef FV_CELL_H
+#define FV_CELL_H
+
 #include<iostream>
 #include "./Vector.h"
 // #include "./Face.H"
