@@ -1,3 +1,5 @@
+#ifndef VECTOR_H
+#define VECTOR_H
 #include<iostream>
 
 class Vector: public Point{
@@ -7,7 +9,7 @@ class Vector: public Point{
 	private:
 			double x, y, z ; 
 	public: 
-			Vector(double x_=0.0, double y_=0.0, double z_=0.0 ):Point(x_,y_,z_);
+			Vector(double x_=0.0, double y_=0.0, double z_=0.0 ):Point(x_,y_,z_){};
 			double dot(Vector& A,Vector& B);
 			Vector cross(Vector& A, Vector& B);
 			friend std::ostream& operator<<(std::ostream& os, Vector& A);
@@ -16,25 +18,6 @@ class Vector: public Point{
 			Vector operator^(Vector& B);	// Cross product 
 			double operator*(Vector& B);	// Dot product 
 };
-
-// Implement all the functionalities 
-Vector::Vector(double x_, double y_, double z_){
-	this->x = x_ ; 
-	this->y = y_ ;
-	this->z = z_ ;
-}
-
-double Vector::X(){
-	return this->x;
-}
-
-double Vector::Y(){
-	return this->y;
-}
-
-double Vector::Z(){
-	return this->z;
-}
 
 double Vector::dot(Vector& A, Vector& B){
 	double result = 0; 
@@ -80,3 +63,5 @@ Vector Vector::operator^(Vector& B){
 double Vector::operator*(Vector& B){
 	return this->dot(*this,B);
 }
+
+#endif

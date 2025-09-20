@@ -1,3 +1,5 @@
+#ifndef POINT_H
+#define POINT_H
 #include<iostream>
 #include <cmath> 
 
@@ -30,10 +32,4 @@ double Point::Z(){
     return this->z;
 }
 
-double Point::distance(Point& A, Point& B){
-    // Calculates the distance between 2 points 
-    double result; 
-    result = std::sqrt(std::pow(A.X()-B.X(),2) + std::pow(A.Y()-B.Y(),2) + std::pow(A.Z()-B.Z(),2));
-    return result;
-}
-
+#endif
