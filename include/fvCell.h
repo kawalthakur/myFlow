@@ -1,3 +1,6 @@
+#ifndef FV_CELL_H
+#define FV_CELL_H
+
 #include<iostream>
 #include "./Vector.h"
 // #include "./Face.H"
@@ -67,3 +70,5 @@ void fvCell::displayFaceSigns(){
     }
     std::cout << ")" << std::endl ; 
 }
+
+#endif

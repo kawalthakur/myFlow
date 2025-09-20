@@ -1,3 +1,6 @@
+#ifndef DICTIONARY_H
+#define DICTIONARY_H
+
 #include<iostream>
 #include<stdio.h>
 #include<regex>
@@ -112,3 +115,4 @@ void extractNeighbours(std::vector<std::size_t>& Neighbours){
     neighbourFile.close();
 
 }
+#endif
