@@ -1,82 +1,50 @@
-#include<iostream>
+#ifndef VECTOR_H
+#define VECTOR_H
 
-class Vector: public Point{
-	// This class is the primary object vector. 
-	// This has 3 components x , y and z
-	// Also includes operations like dot products and cross products
-	private:
-			double x, y, z ; 
-	public: 
-			Vector(double x_=0.0, double y_=0.0, double z_=0.0 ):Point(x_,y_,z_);
-			double dot(Vector& A,Vector& B);
-			Vector cross(Vector& A, Vector& B);
-			friend std::ostream& operator<<(std::ostream& os, Vector& A);
-			Vector operator+(Vector& B);	// Addition 
-			Vector operator-(Vector& B);	// Subtraction
-			Vector operator^(Vector& B);	// Cross product 
-			double operator*(Vector& B);	// Dot product 
+#include <iostream>
+#include "Point.h" // Include the base class header
+
+class Vector : public Point {
+public: 
+    // CORRECTED CONSTRUCTOR: Calls the base class and has an empty body {}.
+    Vector(double x_ = 0.0, double y_ = 0.0, double z_ = 0.0) : Point(x_, y_, z_) {}
+
+    // Operator overloads for vector math
+    Vector operator+(const Vector& B) const;
+    Vector operator-(const Vector& B) const;
+    Vector operator^(const Vector& B) const; // Cross product
+    double operator*(const Vector& B) const;   // Dot product
+
+    // Friend function for printing
+    friend std::ostream& operator<<(std::ostream& os, const Vector& A);
 };
 
-// Implement all the functionalities 
-Vector::Vector(double x_, double y_, double z_){
-	this->x = x_ ; 
-	this->y = y_ ;
-	this->z = z_ ;
+// --- Implementation ---
+
+inline std::ostream& operator<<(std::ostream& os, const Vector& A) {
+    // Uses the public X(), Y(), Z() methods inherited from Point
+    os << "(" << A.X() << ", " << A.Y() << ", " << A.Z() << ")"; 
+    return os;
 }
 
-double Vector::X(){
-	return this->x;
+inline Vector Vector::operator+(const Vector& B) const {
+    return Vector(this->x + B.x, this->y + B.y, this->z + B.z);
 }
 
-double Vector::Y(){
-	return this->y;
+inline Vector Vector::operator-(const Vector& B) const {
+    return Vector(this->x - B.x, this->y - B.y, this->z - B.z);
 }
 
-double Vector::Z(){
-	return this->z;
+inline Vector Vector::operator^(const Vector& B) const {
+    // Cross product
+    return Vector(this->y * B.z - this->z * B.y,
+                  this->z * B.x - this->x * B.z,
+                  this->x * B.y - this->y * B.x);
 }
 
-double Vector::dot(Vector& A, Vector& B){
-	double result = 0; 
-	result = A.X() * B.X() + A.Y() * B.Y() + A.Y()*B.Y();
-	return result;
+inline double Vector::operator*(const Vector& B) const {
+    // Dot product (CORRECTED BUG)
+    return this->x * B.x + this->y * B.y + this->z * B.z;
 }
 
-Vector Vector::cross(Vector& A, Vector& B){
-	double X, Y, Z ; 
-	X = A.Y() * B.Z() - A.Z() * B.Y();
-	Y = A.Z() * B.X() - A.X() * B.Z();
-	Z = A.X() * B.Y() - A.Y() * B.X();
-	return Vector(X,Y,Z);
-}
-
-std::ostream& operator<<(std::ostream& os,Vector& A){
-	os << "(" << A.X() << "," << A.Y() << "," << A.Z() <<")" ; 
-	return os ;
-}
-
-Vector Vector::operator+(Vector& B){
-	double X_, Y_, Z_ ; 
-	X_ = this->x + B.X();
-	Y_ = this->y + B.Y();
-	Z_ = this->z + B.Z();
-	return Vector(X_,Y_,Z_) ;
-}
-
-Vector Vector::operator-(Vector& B){
-	double X_, Y_, Z_ ; 
-	X_ = this->x - B.X();
-	Y_ = this->y - B.Y();
-	Z_ = this->z - B.Z();
-	return Vector(X_,Y_,Z_) ;
-}
-
-Vector Vector::operator^(Vector& B){
-	Vector C(0,0,0);
-	C = this->cross(*this,B);
-	return C;
-}
-
-double Vector::operator*(Vector& B){
-	return this->dot(*this,B);
-}
+#endif // VECTOR_H
