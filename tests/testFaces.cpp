@@ -2,15 +2,9 @@
 #include <vector>
 #include <iomanip> // For std::fixed and std::setprecision
 
-// Your custom header for reading mesh data.
-// Assumed to contain extractFaces, extractPoints, extractOwners, extractNeighbours.
 #include "../include/dictionary.h"
-
-// Your custom classes for 3D points and vectors.
 #include "../include/Point.h"
 #include "../include/Vector.h"
-
-// The new class-based header for managing face geometry.
 #include "../include/fvFace.h"
 
 int main() {

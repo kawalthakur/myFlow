@@ -25,10 +25,14 @@ public:
      * @struct FaceData
      * @brief Holds all geometric and topological data for a single face.
      */
+    // If you didn't use the struct, you would need to declare a separate vector
+    // for each individual property inside the fvFace class:
     struct FaceData {
         size_t index_ = 0;
         std::vector<size_t> iNodes_;
         size_t iOwner_ = 0;
+        // you can not assign -1 to size_t type, if you do the variable will store the largest
+        // possible value the type can hold, which is exactly what it's doin now
         size_t iNeighbour_ = std::numeric_limits<size_t>::max();
 
         Point  centroid_;

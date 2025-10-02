@@ -19,7 +19,7 @@ public:
     double X() const;
     double Y() const;
     double Z() const;
-}
+};
 // --- Implementation ---
 
 // Using a member initializer list is more standard and efficient
