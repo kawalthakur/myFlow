@@ -1,4 +1,5 @@
 # .gitignore
+main.*
 .vscode/
 .DS_Store
 bin/
