@@ -8,11 +8,11 @@
 #include<string>
 #include<vector>
 #include<sstream>
-// #include"../include/utilities.h"
+
 #include "dictionary.h"
 #include "node.h"
 #include "fvCell.h"
-// #include "fvFace.h"
+#include "fvFace.h"
 
 class meshData{
     // This class clubs all polyMesh data into a single object. 
@@ -24,7 +24,7 @@ class meshData{
         //     std::vector<std::size_t> NeighbourList;
 
             std::vector<node> nodeList;
-        //     std::vector<fvFace> faceList;
+            std::vector<fvFace> faceList;
             std::vector<fvCell> cellList;
     
     public: 

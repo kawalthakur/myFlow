@@ -16,6 +16,7 @@ class node{
             node(std::size_t index_=0, Point centroid_=Point());
             void setIndex(std::size_t index_);
             void setCentroid(Point C);
+            Point getCentroid();
             void pushFaceIndex(std::size_t iFace);
             void displayNode();
 };
@@ -31,6 +32,10 @@ void node::setIndex(std::size_t index_){
 
 void node::setCentroid(Point C){
     this->centroid = C;
+}
+
+Point node::getCentroid(){
+    return this->centroid;
 }
 
 void node::pushFaceIndex(std::size_t iFace){
